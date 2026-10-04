@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nerd das Promoções | Grupo VIP WhatsApp</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            nerdDark: '#0a0b12',
+            nerdDarkCard: 'rgba(15, 17, 28, 0.88)',
+            nerdOrange: '#FF5E00',
+            nerdOrangeGlow: '#FF8A00',
+            nerdCyan: '#00E5FF',
+            nerdGreen: '#25D366',
+            nerdGreenHover: '#1eb856',
+          },
+          fontFamily: {
+            title: ['Outfit', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          boxShadow: {
+            'neon-orange': '0 0 30px rgba(255, 94, 0, 0.45), inset 0 0 15px rgba(255, 94, 0, 0.2)',
+            'neon-cyan': '0 0 25px rgba(0, 229, 255, 0.4)',
+            'green-glow': '0 0 35px rgba(37, 211, 102, 0.65)',
+            'avatar-ring': '0 0 30px rgba(255, 94, 0, 0.6), 0 0 60px rgba(0, 229, 255, 0.3)',
+          },
+          animation: {
+            'pulse-glow': 'pulseGlow 2s infinite',
+            'float-slow': 'float 4s ease-in-out infinite',
+            'float-delayed': 'float 4s ease-in-out 2s infinite',
+            'spin-slow': 'spin 12s linear infinite',
+            'shimmer': 'shimmer 2.2s infinite',
+          },
+          keyframes: {
+            pulseGlow: {
+              '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 30px rgba(37, 211, 102, 0.65)' },
+              '50%': { transform: 'scale(1.03)', boxShadow: '0 0 50px rgba(37, 211, 102, 0.95)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-10px) rotate(3deg)' },
+            },
+            shimmer: {
+              '100%': { transform: 'translateX(100%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0a0b12;
+      background-image: 
+        radial-gradient(circle at 50% 15%, rgba(255, 94, 0, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(0, 229, 255, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 15% 85%, rgba(255, 94, 0, 0.15) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    .bg-grid-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    }
+
+    .glass-card {
+      background: rgba(15, 17, 28, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 94, 0, 0.35);
+    }
+
+    .text-glow-orange {
+      text-shadow: 0 0 18px rgba(255, 94, 0, 0.7);
+    }
+
+    .text-glow-white {
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 94, 0, 0.4);
+    }
+
+    .neon-icon-orange {
+      filter: drop-shadow(0 0 8px rgba(255, 94, 0, 0.8));
+    }
+
+    .neon-icon-cyan {
+      filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.8));
+    }
+
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      transform: translateX(-100%);
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.35) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      animation: shimmer 2.2s infinite;
+      content: '';
+    }
+  </style>
+</head>
+<body class="font-body text-slate-100 min-h-screen flex items-center justify-center p-4 sm:p-6 bg-grid-pattern relative overflow-x-hidden">
+
+  <!-- Floating Background Ambient Neon Elements -->
+  <div class="absolute top-10 left-6 text-nerdOrange/30 text-3xl sm:text-4xl animate-float-slow neon-icon-orange pointer-events-none select-none">
+    <i class="fa-solid fa-percent"></i>
+  </div>
+  <div class="absolute top-24 right-8 text-nerdCyan/30 text-3xl sm:text-4xl animate-float-delayed neon-icon-cyan pointer-events-none select-none">
+    <i class="fa-solid fa-glasses"></i>
+  </div>
+  <div class="absolute bottom-16 left-8 text-nerdCyan/30 text-3xl sm:text-4xl animate-float-delayed neon-icon-cyan pointer-events-none select-none">
+    <i class="fa-solid fa-bag-shopping"></i>
+  </div>
+  <div class="absolute bottom-20 right-6 text-nerdOrange/30 text-3xl sm:text-4xl animate-float-slow neon-icon-orange pointer-events-none select-none">
+    <i class="fa-solid fa-tag"></i>
+  </div>
+
+  <!-- Main Card Container -->
+  <main class="w-full max-w-md glass-card rounded-3xl p-6 sm:p-8 text-center relative z-10 shadow-neon-orange my-auto">
+
+    <!-- Top Badge - Live Seats Status -->
+    <div class="inline-flex items-center gap-2 bg-nerdDark/90 border border-nerdOrange/60 px-4 py-1.5 rounded-full text-xs font-extrabold text-nerdOrangeGlow mb-5 uppercase tracking-wider shadow-inner">
+      <span class="w-2.5 h-2.5 rounded-full bg-nerdOrange animate-ping"></span>
+      <span id="seats-counter">🔥 APENAS 14 VAGAS RESTANTES</span>
+    </div>
+
+    <!-- Mascot / Profile Image Container -->
+    <div class="relative w-40 h-40 sm:w-44 sm:h-44 mx-auto mb-5">
+      <!-- Neon Glowing Ring -->
+      <div class="absolute -inset-1.5 rounded-full bg-gradient-to-r from-nerdOrange via-nerdCyan to-nerdOrange animate-spin-slow opacity-80 blur-sm"></div>
+      
+      <!-- Image Frame -->
+      <div class="relative w-full h-full rounded-full bg-slate-900 border-2 border-nerdOrange/80 p-1 flex items-center justify-center overflow-hidden shadow-avatar-ring">
+        <!-- 
+            Sua imagem 'mascote.png' ou 'mascote.jpg' deve estar na mesma pasta no GitHub Pages.
+            Se a imagem não for encontrada, o SVG fallback abaixo entra em ação automaticamente!
+        -->
+        <img 
+          src="mascote.png" 
+          alt="Mascote Nerd das Promoções" 
+          class="w-full h-full object-cover rounded-full"
+          onerror="this.style.display='none'; document.getElementById('mascot-fallback').classList.remove('hidden');"
+        />
+
+        <!-- Fallback Mascot Vector Graphic if image is missing -->
+        <div id="mascot-fallback" class="hidden w-full h-full rounded-full bg-gradient-to-b from-slate-900 to-nerdDark flex items-center justify-center">
+          <svg viewBox="0 0 200 200" class="w-full h-full rounded-full">
+            <circle cx="100" cy="100" r="90" fill="#0f111c" />
+            <circle cx="100" cy="100" r="78" stroke="#FF5E00" stroke-width="3" fill="none" opacity="0.7" />
+            <!-- Hair -->
+            <path d="M55,90 Q45,35 100,30 Q155,35 145,90 Q125,40 100,45 Q75,40 55,90 Z" fill="#20150d" />
+            <path d="M60,70 Q70,25 100,20 Q130,20 140,70 Q118,35 100,38 Q82,35 60,70 Z" fill="#FF5E00" />
+            <!-- Face -->
+            <ellipse cx="100" cy="108" rx="40" ry="44" fill="#ffdbac" />
+            <!-- Glasses -->
+            <rect x="68" y="90" width="28" height="22" rx="6" fill="none" stroke="#0a0b12" stroke-width="4" />
+            <rect x="104" y="90" width="28" height="22" rx="6" fill="none" stroke="#0a0b12" stroke-width="4" />
+            <line x1="96" y1="98" x2="104" y2="98" stroke="#0a0b12" stroke-width="4" />
+            <!-- Glasses Neon Reflections -->
+            <line x1="72" y1="94" x2="82" y2="106" stroke="#00E5FF" stroke-width="2.5" opacity="0.9" />
+            <line x1="108" y1="94" x2="118" y2="106" stroke="#00E5FF" stroke-width="2.5" opacity="0.9" />
+            <!-- Eyes & Smile -->
+            <circle cx="82" cy="101" r="3.5" fill="#0a0b12" />
+            <circle cx="118" cy="101" r="3.5" fill="#0a0b12" />
+            <path d="M86,128 Q100,140 114,128" fill="none" stroke="#0a0b12" stroke-width="3.5" stroke-linecap="round" />
+            <!-- Hoodie -->
+            <path d="M55,152 Q100,172 145,152 L155,200 L45,200 Z" fill="#FF5E00" />
+            <path d="M78,152 L100,188 L122,152" fill="none" stroke="#ffffff" stroke-width="3.5" opacity="0.9" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Floating WhatsApp Icon Badge -->
+      <div class="absolute -bottom-1 -right-1 bg-nerdGreen text-nerdDark font-black p-2.5 rounded-full w-10 h-10 flex items-center justify-center shadow-lg border-2 border-nerdDark">
+        <i class="fa-brands fa-whatsapp text-xl"></i>
+      </div>
+    </div>
+
+    <!-- Brand Headline -->
+    <h1 class="font-title text-3xl sm:text-4xl font-black uppercase tracking-tight mb-1">
+      <span class="text-nerdOrange text-glow-orange block">NERD DAS</span>
+      <span class="text-white text-glow-white block -mt-1">PROMOÇÕES</span>
+    </h1>
+
+    <p class="text-nerdCyan font-extrabold text-sm sm:text-base mb-6 leading-tight uppercase tracking-wide">
+      O NERD CHEGOU PRA SALVAR O SEU BOLSO! 🤓⚡
+    </p>
+
+    <!-- Benefits Section -->
+    <div class="bg-nerdDark/80 rounded-2xl p-4 mb-6 border border-slate-800 text-left space-y-3 shadow-inner">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-nerdOrange/20 border border-nerdOrange/50 flex items-center justify-center text-nerdOrange text-base shrink-0 neon-icon-orange">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <span class="text-xs sm:text-sm text-slate-200 font-bold">
+          Dicas de compras em tempo real
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-nerdCyan/20 border border-nerdCyan/50 flex items-center justify-center text-nerdCyan text-base shrink-0 neon-icon-cyan">
+          <i class="fa-solid fa-ticket"></i>
+        </div>
+        <span class="text-xs sm:text-sm text-slate-200 font-bold">
+          Cupons de desconto exclusivos
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-nerdOrange/20 border border-nerdOrange/50 flex items-center justify-center text-nerdOrange text-base shrink-0 neon-icon-orange">
+          <i class="fa-solid fa-fire"></i>
+        </div>
+        <span class="text-xs sm:text-sm text-slate-200 font-bold">
+          Ofertas imperdíveis e erros de preço
+        </span>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="mb-4">
+      <a 
+        id="btn-whatsapp"
+        href="https://chat.whatsapp.com/GyfaJE6EFT8EtJ8FhaSAAN" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="shimmer-btn w-full bg-nerdGreen hover:bg-nerdGreenHover text-nerdDark font-title font-black text-lg sm:text-xl py-4 px-6 rounded-2xl flex items-center justify-center gap-3 shadow-green-glow animate-pulse-glow transition-all duration-300 active:scale-95"
+      >
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+        <span>ENTRAR NO GRUPO VIP AGORA</span>
+      </a>
+    </div>
+
+    <!-- Security & Guarantee Badge -->
+    <div class="flex items-center justify-center gap-3 text-xs text-slate-400 font-semibold">
+      <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-nerdGreen"></i> 100% Gratuito</span>
+      <span class="text-slate-600">•</span>
+      <span class="flex items-center gap-1.5"><i class="fa-solid fa-lock text-nerdCyan"></i> Grupo Seguro</span>
+    </div>
+
+    <!-- Dynamic Social Proof Notification Toast -->
+    <div id="toast-social-proof" class="mt-5 bg-slate-900/90 border border-nerdOrange/40 rounded-xl p-3 text-xs text-slate-200 flex items-center justify-between transition-all duration-500 opacity-0 translate-y-3 shadow-lg">
+      <div class="flex items-center gap-2.5">
+        <div class="w-2.5 h-2.5 rounded-full bg-nerdGreen animate-ping"></div>
+        <span id="toast-text" class="font-medium">
+          <strong class="text-nerdOrange font-bold">Gabriel M.</strong> acabou de entrar no grupo!
+        </span>
+      </div>
+      <span id="toast-time" class="text-[10px] text-slate-500 font-bold">há 2 min</span>
+    </div>
+
+  </main>
+
+  <script>
+    // Social Proof Data Simulation
+    const users = [
+      { name: 'Lucas Silva', time: 'há 1 min' },
+      { name: 'Mariana Costa', time: 'há 2 min' },
+      { name: 'Pedro Henrique', time: 'há 1 min' },
+      { name: 'Beatriz Lima', time: 'há 3 min' },
+      { name: 'Matheus Santos', time: 'há 2 min' },
+      { name: 'Camila Rodrigues', time: 'há 4 min' },
+      { name: 'Rafael Oliveira', time: 'há 1 min' }
+    ];
+
+    let availableSeats = 14;
+    const toast = document.getElementById('toast-social-proof');
+    const toastText = document.getElementById('toast-text');
+    const toastTime = document.getElementById('toast-time');
+    const seatsCounter = document.getElementById('seats-counter');
+
+    // Function to trigger live social proof toast
+    function triggerSocialProof() {
+      const randomUser = users[Math.floor(Math.random() * users.length)];
+      toastText.innerHTML = `<strong class="text-nerdOrange font-bold">${randomUser.name}</strong> acabou de entrar no grupo!`;
+      toastTime.innerText = randomUser.time;
+
+      toast.classList.remove('opacity-0', 'translate-y-3');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      // Slowly decrease seats counter to create urgency
+      if (availableSeats > 3 && Math.random() > 0.4) {
+        availableSeats--;
+        seatsCounter.innerText = `🔥 APENAS ${availableSeats} VAGAS RESTANTES`;
+      }
+
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'translate-y-3');
+      }, 4000);
+    }
+
+    // Interval loop for social proof notifications
+    setTimeout(() => {
+      triggerSocialProof();
+      setInterval(triggerSocialProof, 8000);
+    }, 2500);
+  </script>
+
+</body>
+</html>
